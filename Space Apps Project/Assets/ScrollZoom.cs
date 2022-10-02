@@ -5,8 +5,9 @@ using UnityEngine;
 public class ScrollZoom : MonoBehaviour
 {
     [SerializeField]
-    private float ScrollSpeed = 10;
+    private float ScrollSpeed = 25;
     private Camera ZoomCamera;
+    public Transform crossHair;
     private void Start()
     {
         
@@ -14,6 +15,10 @@ public class ScrollZoom : MonoBehaviour
 
     void Update()
     {
-        ZoomCamera.orthographicSize -= Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+        float scrollWheel = Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
+        ZoomCamera.orthographicSize -= scrollWheel;
+        crossHair.transform.localScale = new Vector3(scrollWheel, scrollWheel, 0);
+
+
     }
 }
