@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Gas Giant
+  - Neptunian
+  - Super-Earth
+  - Terrestial
+  - Solar-type Stars
+  - Hot Blue Stars
+  - Red Dwarf Stars
+  - White Dwarfs
+  - Neutron Stars
   layers:
   - Default
   - TransparentFX

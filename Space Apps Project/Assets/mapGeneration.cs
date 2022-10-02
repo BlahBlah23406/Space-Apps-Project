@@ -17,29 +17,60 @@ public class mapGeneration : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (var i = 0; i < 10; i++)
+        string telescope = PlayerPrefs.GetString("telescope");
+        int spawnRate = 0;
+        if (telescope.Equals("Kepler"))
+        {
+            spawnRate = 4;
+        }
+        else if (telescope.Equals("Hubble"))
+        {
+            
+            spawnRate = 13;
+        }
+        else if (telescope.Equals("James Webb"))
+        {
+            
+            spawnRate = 20;
+        }
+        else if (telescope.Equals("Chandra X-Ray"))
+        {
+            spawnRate = 10;
+        }
+        else if (telescope.Equals("Voyager One"))
+        {
+            
+            spawnRate = 6;
+        }
+        generation(spawnRate);
+    }
+
+    public void generation(int spawnRate)
+    {
+        for (var i = 0; i < spawnRate; i++)
         {
             //planet generation
             
-                Instantiate(gasGiant, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(gasGiant, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                Instantiate(neptunian, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(neptunian, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                Instantiate(terrestial, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(terrestial, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
 
-                Instantiate(superEarth, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(superEarth, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                //star generation
-                Instantiate(hotBlueStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            //star generation
+            Instantiate(hotBlueStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                Instantiate(neutronStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            
                 
-                Instantiate(redDwarfStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(redDwarfStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                Instantiate(solarTypeStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(solarTypeStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
                 
-                Instantiate(whiteDwarfStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
+            Instantiate(whiteDwarfStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
         }
+        Instantiate(neutronStar, new Vector3(Random.Range(-500,500), Random.Range(-500,500), 0), Quaternion.identity).SetActive(true);
     }
 
     // Update is called once per frame
